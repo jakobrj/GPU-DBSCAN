@@ -1,15 +1,17 @@
 from distutils.core import setup as CySetup
 from distutils.core import Extension
+# from setuptools import setup, Extension
 from Cython.Build import cythonize
 import numpy
 
 DBSCAN_GPU = Extension(
-    'DBSCAN_GPU',
+    'dbscan_gpu',
     [
         'src/cython/DBSCAN_GPU.pyx',
     ],
     libraries=['DBSCAN_GPU'],
     library_dirs=[
+        'cython',
         '.',
         '..',
     ],
@@ -21,6 +23,7 @@ DBSCAN_GPU = Extension(
 )
 
 CySetup(
-    name='DBSCAN_GPU',
+# setup(
+    name='dbscan_gpu',
     ext_modules=cythonize([DBSCAN_GPU])
 )

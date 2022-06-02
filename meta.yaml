@@ -1,0 +1,22 @@
+package:
+  name: dbscan_gpu
+  version: 0.0.4
+
+source:
+  path: .
+
+build:
+  number: 4
+
+requirements:
+  build:
+    - python
+    - Cython
+    - numpy
+    - setuptools
+  run:
+    - python
+    - numpy
+
+about:
+  summary: This contains two GPU parallelized versions of DBSCAN
